@@ -65,9 +65,9 @@ public class ProductTypeController {
 	 * @return Deleted ProductType Object
 	 */
 	@RequestMapping(value = "/deleteProduct/{id}", method = RequestMethod.DELETE, produces = MediaType.APPLICATION_JSON_VALUE)
-	public ResponseEntity<ProductType> deleteOneProductType(@PathVariable("id") Integer id) {
-		ProductType deleteProduct = productTypeService.deleteOneProductType(id);
-		return new ResponseEntity<ProductType>(deleteProduct, HttpStatus.OK);
+	public ResponseEntity<ProductDTO> deleteOneProductType(@PathVariable("id") Integer id) {
+		ProductDTO deleteProduct = productTypeService.deleteOneProductType(id);
+		return new ResponseEntity<ProductDTO>(deleteProduct, HttpStatus.OK);
 	}
 
 	/**
@@ -76,9 +76,9 @@ public class ProductTypeController {
 	 * @return Deleted ProductType Object
 	 */
 	@RequestMapping(value = "/updateOneProduct", method = RequestMethod.PUT, consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
-	public ResponseEntity<ProductType> updateOneProductType(@RequestBody ProductType product) {
-		ProductType updatedProduct = productTypeService.updateOneProductType(product);
-		return new ResponseEntity<ProductType>(updatedProduct, HttpStatus.OK);
+	public ResponseEntity<ProductDTO> updateOneProductType(@RequestBody ProductDTO productDTO) {
+		ProductDTO updatedProduct = productTypeService.updateOneProductType(productDTO);
+		return new ResponseEntity<ProductDTO>(updatedProduct, HttpStatus.OK);
 	}
 
 	/**
@@ -88,8 +88,8 @@ public class ProductTypeController {
 	 * @return ProductType Object
 	 */
 	@RequestMapping(value = "/searchProductType/{productName}", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
-	public ResponseEntity<List<ProductType>> searchProductType(@PathVariable("productName") String productName) {
-		List<ProductType> existingProduct = productTypeService.searchProductTypeByName(productName);
-		return new ResponseEntity<List<ProductType>>(existingProduct, HttpStatus.OK);
+	public ResponseEntity<List<ProductDTO>> searchProductType(@PathVariable("productName") String productName) {
+		List<ProductDTO> existingProduct = productTypeService.searchProductTypeByName(productName);
+		return new ResponseEntity<List<ProductDTO>>(existingProduct, HttpStatus.OK);
 	}
 }

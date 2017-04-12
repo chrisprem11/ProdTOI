@@ -1,5 +1,7 @@
 package com.prodTOI.urs.DTO;
 
+import java.util.List;
+
 public class AttributeDTO {
 	
 	private int attributeId;
@@ -9,6 +11,9 @@ public class AttributeDTO {
 	private String value;
 	
 	private String attributeDisplayName;
+	
+	private List<ProductDetailDTO> productDetailsDTO;
+
 
 	public int getAttributeId() {
 		return attributeId;
@@ -41,6 +46,15 @@ public class AttributeDTO {
 	public void setAttributeDisplayName(String attributeDisplayName) {
 		this.attributeDisplayName = attributeDisplayName;
 	}
+
+	public List<ProductDetailDTO> getProductDetailsDTO() {
+		return productDetailsDTO;
+	}
+
+	public void setProductDetailsDTO(List<ProductDetailDTO> productDetailsDTO) {
+		this.productDetailsDTO = productDetailsDTO;
+	}
+	
 	
 	
 

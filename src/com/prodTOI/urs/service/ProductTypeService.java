@@ -8,18 +8,21 @@ import com.prodTOI.urs.model.ProductType;
 
 public interface ProductTypeService {
 	
-	public void saveProductType(ProductType object);
+	public void saveProductType(ProductDTO object);
 
 	public List<ProductDTO> fetchAllProducts();
 
 	public ProductDTO createNewProduct(CategoryDTO categoryDTO, ProductDTO productDTO);
 
-	public ProductType deleteOneProductType(Integer id);
+	public ProductDTO deleteOneProductType(Integer id);
 
-	public ProductType updateOneProductType(ProductType product);
+	public ProductDTO updateOneProductType(ProductDTO productDTO);
 
-	public List<ProductType> searchProductTypeByName(String productName);
+	public List<ProductDTO> searchProductTypeByName(String productName);
 
-	public ProductType searchProductTypeById(Integer id);
+	public ProductDTO searchProductTypeById(Integer id);
+
+	public ProductDTO searchProductTypeDTOById(Integer id);
+
 
 }

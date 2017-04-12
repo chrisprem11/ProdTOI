@@ -6,6 +6,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import com.prodTOI.urs.DTO.ProductDTO;
+import com.prodTOI.urs.DTO.ProductDetailDTO;
 import com.prodTOI.urs.dao.ProductDetailDao;
 import com.prodTOI.urs.model.ProductDetail;
 import com.prodTOI.urs.model.ProductType;
@@ -18,14 +20,14 @@ public class ProductDetailServiceImpl implements ProductDetailService{
 	ProductDetailDao productDetailDao;
 
 	@Override
-	public List<ProductDetail> fetchAllProductDetails() {
+	public List<ProductDetailDTO> fetchAllProductDetails() {
 		
 		return productDetailDao.fetchAllProductDetails();
 	}
 
 	@Override
-	public List<ProductDetail> getAllDetailsByProductType(ProductType product) {
-		return productDetailDao.searchProductDetailsByProdcutType(product);
+	public List<ProductDetailDTO> getAllDetailsByProductType(ProductDTO productDTO) {
+		return productDetailDao.searchProductDetailsByProdcutType(productDTO);
 	}
 
 }

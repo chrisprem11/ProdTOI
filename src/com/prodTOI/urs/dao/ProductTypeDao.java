@@ -8,16 +8,18 @@ import com.prodTOI.urs.model.ProductType;
 
 public interface ProductTypeDao {
 	
-	void save(ProductType object);
+	void save(ProductDTO object);
 
 	List<ProductDTO> fetchAllProducts();
 
-	ProductType fetchProductById(Integer id);
+	ProductDTO fetchProductById(Integer id);
 
-	void deleteOneProductType(ProductType productType);
+	void deleteOneProductType(ProductDTO productTypeDTO);
 
-	List<ProductType> searchProductTypeByName(String productName);
+	List<ProductDTO> searchProductTypeByName(String productName);
 
 	ProductDTO saveProductType(CategoryDTO categoryDTO, ProductDTO productDTO, String encodedProductImage);
+
+	ProductDTO searchProductAndAttributeByProductTypeId(Integer id);
 
 }

@@ -2,13 +2,13 @@ package com.prodTOI.urs.service;
 
 import java.util.List;
 
-import com.prodTOI.urs.model.ProductDetail;
-import com.prodTOI.urs.model.ProductType;
+import com.prodTOI.urs.DTO.ProductDTO;
+import com.prodTOI.urs.DTO.ProductDetailDTO;
 
 public interface ProductDetailService {
 
-	List<ProductDetail> fetchAllProductDetails();
+	List<ProductDetailDTO> fetchAllProductDetails();
 
-	List<ProductDetail> getAllDetailsByProductType(ProductType product);
+	List<ProductDetailDTO> getAllDetailsByProductType(ProductDTO productDTO);
 
 }

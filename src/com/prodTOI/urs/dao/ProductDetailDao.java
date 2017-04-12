@@ -2,13 +2,13 @@ package com.prodTOI.urs.dao;
 
 import java.util.List;
 
-import com.prodTOI.urs.model.ProductDetail;
-import com.prodTOI.urs.model.ProductType;
+import com.prodTOI.urs.DTO.ProductDTO;
+import com.prodTOI.urs.DTO.ProductDetailDTO;
 
 public interface ProductDetailDao {
 
-	List<ProductDetail> fetchAllProductDetails();
+	List<ProductDetailDTO> fetchAllProductDetails();
 
-	List<ProductDetail> searchProductDetailsByProdcutType(ProductType product);
+	List<ProductDetailDTO> searchProductDetailsByProdcutType(ProductDTO productDTO);
 
 }

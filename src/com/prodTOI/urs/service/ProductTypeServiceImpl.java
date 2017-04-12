@@ -26,7 +26,7 @@ public class ProductTypeServiceImpl implements ProductTypeService {
 	private ProductTypeDao productDao;
 
 	@Override
-	public void saveProductType(ProductType object) {
+	public void saveProductType(ProductDTO object) {
 		productDao.save(object);
 	}
 
@@ -39,7 +39,7 @@ public class ProductTypeServiceImpl implements ProductTypeService {
 	public ProductDTO createNewProduct(CategoryDTO categoryDTO, ProductDTO productDTO) {
 		String encodedProductImage = "";
 		try {
-			Path path = Paths.get("E:\\iphone.jpg");
+			Path path = Paths.get("E:\\smartphone.png");
 			byte[] data = Files.readAllBytes(path);
 			encodedProductImage = Base64.getEncoder().encodeToString(data);
 			System.out.println("Product Image- " + encodedProductImage);
@@ -52,29 +52,35 @@ public class ProductTypeServiceImpl implements ProductTypeService {
 	}
 
 	@Override
-	public ProductType deleteOneProductType(Integer id) {
-		ProductType productType = productDao.fetchProductById(id);
-		productDao.deleteOneProductType(productType);
-		return productType;
+	public ProductDTO deleteOneProductType(Integer id) {
+		ProductDTO productTypeDTO = productDao.fetchProductById(id);
+		productDao.deleteOneProductType(productTypeDTO);
+		return productTypeDTO;
 	}
 
 	@Override
-	public ProductType updateOneProductType(ProductType productType) {
-		ProductType product = productDao.fetchProductById(productType.getProductTypeId());
-		product.setProductType(productType.getProductType());
-		productDao.save(product);
-		return product;
+	public ProductDTO updateOneProductType(ProductDTO productTypeDTO) {
+		ProductDTO productDTO = productDao.fetchProductById(productTypeDTO.getProductTypeId());
+		productDao.save(productTypeDTO);
+		return productDTO;
 	}
 
 	@Override
-	public List<ProductType> searchProductTypeByName(String productName) {
+	public List<ProductDTO> searchProductTypeByName(String productName) {
 		return productDao.searchProductTypeByName(productName);
 	}
 
 	@Override
-	public ProductType searchProductTypeById(Integer id) {
+	public ProductDTO searchProductTypeById(Integer id) {
 
 		return productDao.fetchProductById(id);
 	}
+
+	@Override
+	public ProductDTO searchProductTypeDTOById(Integer id) {
+		return productDao.searchProductAndAttributeByProductTypeId(id);
+	}
+
+	
 
 }

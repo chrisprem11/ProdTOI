@@ -11,6 +11,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.prodTOI.urs.DTO.ProductDTO;
+import com.prodTOI.urs.DTO.ProductDetailDTO;
 import com.prodTOI.urs.model.ProductDetail;
 import com.prodTOI.urs.model.ProductType;
 import com.prodTOI.urs.service.ProductDetailService;
@@ -31,9 +33,9 @@ public class ProductDetailsController {
 	 * @return ProductDetails List
 	 */
 	@RequestMapping(value = "/getAllProductDetails", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
-	public ResponseEntity<List<ProductDetail>> getAllProductDetails() {
-		List<ProductDetail> allProductDetails = productDetailService.fetchAllProductDetails();
-		return new ResponseEntity<List<ProductDetail>>(allProductDetails, HttpStatus.OK);
+	public ResponseEntity<List<ProductDetailDTO>> getAllProductDetails() {
+		List<ProductDetailDTO> allProductDetails = productDetailService.fetchAllProductDetails();
+		return new ResponseEntity<List<ProductDetailDTO>>(allProductDetails, HttpStatus.OK);
 	}
 	
 	/**
@@ -42,10 +44,11 @@ public class ProductDetailsController {
 	 * @return ProductDetails List
 	 */
 	@RequestMapping(value="/getProductDetails/{id}",method=RequestMethod.GET,produces=MediaType.APPLICATION_JSON_VALUE)
-	public ResponseEntity<List<ProductDetail>> getProductDetails(@PathVariable("id") Integer id){
-		ProductType product = productTypeService.searchProductTypeById(id);
-		List<ProductDetail> allProductDetails = productDetailService.getAllDetailsByProductType(product);
-		return new ResponseEntity<List<ProductDetail>>(allProductDetails, HttpStatus.OK);
+	public ResponseEntity<List<ProductDetailDTO>> getProductDetails(@PathVariable("id") Integer id){
+		ProductDTO productDTO = productTypeService.searchProductTypeById(id);
+		System.out.println(productDTO.getProductTypeId());
+		List<ProductDetailDTO> allProductDetails = productDetailService.getAllDetailsByProductType(productDTO);
+		return new ResponseEntity<List<ProductDetailDTO>>(allProductDetails, HttpStatus.OK);
 	}
 
 }

@@ -11,6 +11,7 @@ import org.springframework.stereotype.Repository;
 import com.prodTOI.urs.DTO.CategoryDTO;
 import com.prodTOI.urs.DTO.ProductDTO;
 import com.prodTOI.urs.model.Category;
+import com.prodTOI.urs.model.ProductDetail;
 import com.prodTOI.urs.model.ProductType;
 
 @Repository("productTypeDao")
@@ -20,8 +21,14 @@ public class ProductTypeDaoImpl extends AbstractDao<Integer, ProductType> implem
 	CategoryDao categoryDao;
 
 	@Override
-	public void save(ProductType object) {
-		persist(object);
+	public void save(ProductDTO object) {
+		ProductType productType = getByKey(object.getProductTypeId());
+		productType.setProductDisplayName(object.getProductDisplayName());
+		productType.setProductImage(object.getProductImage());
+		productType.setProductPrice(object.getProductPrice());
+		productType.setProductType(object.getProductType());
+		
+		persist(productType);
 
 	}
 
@@ -34,22 +41,29 @@ public class ProductTypeDaoImpl extends AbstractDao<Integer, ProductType> implem
 	}
 
 	@Override
-	public ProductType fetchProductById(Integer id) {
+	public ProductDTO fetchProductById(Integer id) {
 		ProductType product = getByKey(id);
-		return product;
+		ProductDTO productDTO = new ProductDTO();
+		productDTO.setProductTypeId(product.getProductTypeId());
+		productDTO.setProductType(product.getProductType());
+		productDTO.setProductPrice(product.getProductPrice());
+		productDTO.setProductImage(product.getProductImage());
+		productDTO.setProductDisplayName(product.getProductDisplayName());
+		return productDTO;
 	}
 
 	@Override
-	public void deleteOneProductType(ProductType productType) {
-		delete(productType);
+	public void deleteOneProductType(ProductDTO productTypeDTO) {
+		ProductType product = getByKey(productTypeDTO.getProductTypeId());
+		delete(product);
 	}
 
 	@Override
-	public List<ProductType> searchProductTypeByName(String productName) {
+	public List<ProductDTO> searchProductTypeByName(String productName) {
 		Criteria criteria = createEntityCriteria();
 		criteria.add(Restrictions.ilike("productDisplayName", productName, MatchMode.ANYWHERE));
 		@SuppressWarnings("unchecked")
-		List<ProductType> matchingProducts = (List<ProductType>) criteria.list();
+		List<ProductDTO> matchingProducts = (List<ProductDTO>) criteria.list();
 		return matchingProducts;
 	}
 
@@ -77,6 +91,13 @@ public class ProductTypeDaoImpl extends AbstractDao<Integer, ProductType> implem
 		
 		return productDaoDTO;
 		
+	}
+
+	@Override
+	public ProductDTO searchProductAndAttributeByProductTypeId(Integer id) {
+		ProductType productType = getByKey(id);
+		
+		return null;
 	}
 
 }

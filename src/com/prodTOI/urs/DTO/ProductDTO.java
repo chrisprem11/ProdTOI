@@ -1,5 +1,7 @@
 package com.prodTOI.urs.DTO;
 
+import java.util.List;
+
 public class ProductDTO {
 	
 	private int productTypeId;
@@ -15,6 +17,9 @@ public class ProductDTO {
 	private double productPrice;
 	
 	private CategoryDTO categoryDTO;
+	
+	private List<ProductDetailDTO> productDetailsDTO;
+
 
 	public String getProductType() {
 		return productType;
@@ -70,6 +75,14 @@ public class ProductDTO {
 
 	public void setProductImage(String productImage) {
 		this.productImage = productImage;
+	}
+
+	public List<ProductDetailDTO> getProductDetailsDTO() {
+		return productDetailsDTO;
+	}
+
+	public void setProductDetailsDTO(List<ProductDetailDTO> productDetailsDTO) {
+		this.productDetailsDTO = productDetailsDTO;
 	}
 	
 	
