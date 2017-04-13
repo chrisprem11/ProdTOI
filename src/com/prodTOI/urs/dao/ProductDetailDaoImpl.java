@@ -36,8 +36,10 @@ public class ProductDetailDaoImpl extends AbstractDao<Integer, ProductDetail> im
 		criteria.add(Restrictions.eq("productType", productType));
 		List<ProductDetail> allProductDetails = (List<ProductDetail>) criteria.list();
 		List<ProductDetailDTO> productDetailDTOList = new ArrayList<ProductDetailDTO>();
+				
 		for(int i=0;i<allProductDetails.size();i++){
 			ProductDetailDTO productDetailDTO = new ProductDetailDTO();
+			productDetailDTO.setId(allProductDetails.get(i).getId());
 			productDetailDTO.setProductType(allProductDetails.get(i).getProductType());
 			productDetailDTO.setAttribute(allProductDetails.get(i).getAttribute());
 			productDetailDTOList.add(productDetailDTO);

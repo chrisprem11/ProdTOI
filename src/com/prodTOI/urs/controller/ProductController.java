@@ -13,7 +13,6 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.prodTOI.urs.DTO.CategoryDTO;
-import com.prodTOI.urs.model.Category;
 import com.prodTOI.urs.service.CategoryService;
 
 @RestController

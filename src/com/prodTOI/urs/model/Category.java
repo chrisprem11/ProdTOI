@@ -35,7 +35,6 @@ public class Category implements Serializable {
 
 	// bi-directional many-to-one association to ProductType
 	@OneToMany(mappedBy = "category", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
-	@Fetch(FetchMode.SUBSELECT)
 	@JsonIgnore
 	private List<ProductType> productTypes;
 

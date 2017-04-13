@@ -1,6 +1,5 @@
 package com.prodTOI.urs.service;
 
-import java.io.File;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
@@ -9,21 +8,25 @@ import java.util.Base64;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.core.env.Environment;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.prodTOI.urs.DTO.CategoryDTO;
 import com.prodTOI.urs.DTO.ProductDTO;
 import com.prodTOI.urs.dao.ProductTypeDao;
-import com.prodTOI.urs.model.Category;
-import com.prodTOI.urs.model.ProductType;
 
 @Service("productTypeService")
 @Transactional
 public class ProductTypeServiceImpl implements ProductTypeService {
+	
+	private static final String IMAGE_URL = "imageURl";
 
 	@Autowired
 	private ProductTypeDao productDao;
+	
+	@Autowired
+	private Environment environment;
 
 	@Override
 	public void saveProductType(ProductDTO object) {
@@ -39,7 +42,7 @@ public class ProductTypeServiceImpl implements ProductTypeService {
 	public ProductDTO createNewProduct(CategoryDTO categoryDTO, ProductDTO productDTO) {
 		String encodedProductImage = "";
 		try {
-			Path path = Paths.get("E:\\iphone.jpg");
+			Path path = Paths.get(environment.getProperty(IMAGE_URL));
 			byte[] data = Files.readAllBytes(path);
 			encodedProductImage = Base64.getEncoder().encodeToString(data);
 			System.out.println("Product Image- " + encodedProductImage);

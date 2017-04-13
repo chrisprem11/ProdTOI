@@ -13,8 +13,6 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.prodTOI.urs.DTO.ProductDTO;
 import com.prodTOI.urs.DTO.ProductDetailDTO;
-import com.prodTOI.urs.model.ProductDetail;
-import com.prodTOI.urs.model.ProductType;
 import com.prodTOI.urs.service.ProductDetailService;
 import com.prodTOI.urs.service.ProductTypeService;
 
