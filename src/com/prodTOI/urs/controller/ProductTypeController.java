@@ -35,7 +35,7 @@ public class ProductTypeController {
 	 */
 	@RequestMapping(value = "/createProduct/type", method = RequestMethod.POST, consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
 	public ResponseEntity<ProductDTO> createOneProductType(@RequestBody ProductDTO productDTO) {
-		CategoryDTO categoryDTO = categoryService.findCategoryByName(productDTO.getCategory());
+		CategoryDTO categoryDTO = categoryService.findCategoryByName(productDTO.getCategoryName());
 		if (categoryDTO == null) {
 			System.out.println("Category not found !");
 			return new ResponseEntity<>(HttpStatus.NO_CONTENT);

@@ -13,6 +13,8 @@ public interface ProductTypeDao {
 	List<ProductDTO> fetchAllProducts();
 
 	ProductDTO fetchProductById(Integer id);
+	
+	ProductType getProductTypeFromProductDTO(ProductDTO productDTO);
 
 	void deleteOneProductType(ProductDTO productTypeDTO);
 

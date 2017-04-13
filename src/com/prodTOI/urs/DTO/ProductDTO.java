@@ -2,13 +2,16 @@ package com.prodTOI.urs.DTO;
 
 import java.util.List;
 
+import com.prodTOI.urs.model.Category;
+import com.prodTOI.urs.model.ProductDetail;
+
 public class ProductDTO {
 	
 	private int productTypeId;
 
 	private String productType;
 	
-	private String category;
+	private String categoryName;
 	
 	private String productDisplayName;
 	
@@ -16,10 +19,17 @@ public class ProductDTO {
 	
 	private double productPrice;
 	
-	private CategoryDTO categoryDTO;
+	private Category category;
 	
-	private List<ProductDetailDTO> productDetailsDTO;
+	private List<ProductDetail> productDetail;
 
+	public int getProductTypeId() {
+		return productTypeId;
+	}
+
+	public void setProductTypeId(int productTypeId) {
+		this.productTypeId = productTypeId;
+	}
 
 	public String getProductType() {
 		return productType;
@@ -29,12 +39,12 @@ public class ProductDTO {
 		this.productType = productType;
 	}
 
-	public String getCategory() {
-		return category;
+	public String getCategoryName() {
+		return categoryName;
 	}
 
-	public void setCategory(String category) {
-		this.category = category;
+	public void setCategoryName(String categoryName) {
+		this.categoryName = categoryName;
 	}
 
 	public String getProductDisplayName() {
@@ -45,30 +55,6 @@ public class ProductDTO {
 		this.productDisplayName = productDisplayName;
 	}
 
-	public double getProductPrice() {
-		return productPrice;
-	}
-
-	public void setProductPrice(double productPrice) {
-		this.productPrice = productPrice;
-	}
-
-	public int getProductTypeId() {
-		return productTypeId;
-	}
-
-	public void setProductTypeId(int productTypeId) {
-		this.productTypeId = productTypeId;
-	}
-
-	public CategoryDTO getCategoryDTO() {
-		return categoryDTO;
-	}
-
-	public void setCategoryDTO(CategoryDTO categoryDTO) {
-		this.categoryDTO = categoryDTO;
-	}
-
 	public String getProductImage() {
 		return productImage;
 	}
@@ -77,16 +63,28 @@ public class ProductDTO {
 		this.productImage = productImage;
 	}
 
-	public List<ProductDetailDTO> getProductDetailsDTO() {
-		return productDetailsDTO;
+	public double getProductPrice() {
+		return productPrice;
 	}
 
-	public void setProductDetailsDTO(List<ProductDetailDTO> productDetailsDTO) {
-		this.productDetailsDTO = productDetailsDTO;
+	public void setProductPrice(double productPrice) {
+		this.productPrice = productPrice;
 	}
-	
-	
-	
-	
-	
+
+	public Category getCategory() {
+		return category;
+	}
+
+	public void setCategory(Category category) {
+		this.category = category;
+	}
+
+	public List<ProductDetail> getProductDetail() {
+		return productDetail;
+	}
+
+	public void setProductDetail(List<ProductDetail> productDetail) {
+		this.productDetail = productDetail;
+	}
+
 }

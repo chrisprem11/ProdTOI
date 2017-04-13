@@ -46,7 +46,6 @@ public class ProductDetailsController {
 	@RequestMapping(value="/getProductDetails/{id}",method=RequestMethod.GET,produces=MediaType.APPLICATION_JSON_VALUE)
 	public ResponseEntity<List<ProductDetailDTO>> getProductDetails(@PathVariable("id") Integer id){
 		ProductDTO productDTO = productTypeService.searchProductTypeById(id);
-		System.out.println(productDTO.getProductTypeId());
 		List<ProductDetailDTO> allProductDetails = productDetailService.getAllDetailsByProductType(productDTO);
 		return new ResponseEntity<List<ProductDetailDTO>>(allProductDetails, HttpStatus.OK);
 	}

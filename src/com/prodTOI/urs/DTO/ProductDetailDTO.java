@@ -1,12 +1,15 @@
 package com.prodTOI.urs.DTO;
 
+import com.prodTOI.urs.model.Attribute;
+import com.prodTOI.urs.model.ProductType;
+
 public class ProductDetailDTO {
 
 	private int id;
 
-	private ProductDTO productTypeDTO;
+	private ProductType productType;
 	
-	private AttributeDTO attributeDTO;
+	private Attribute attribute;
 
 	public int getId() {
 		return id;
@@ -16,24 +19,22 @@ public class ProductDetailDTO {
 		this.id = id;
 	}
 
-	public ProductDTO getProductTypeDTO() {
-		return productTypeDTO;
+	public ProductType getProductType() {
+		return productType;
 	}
 
-	public void setProductTypeDTO(ProductDTO productTypeDTO) {
-		this.productTypeDTO = productTypeDTO;
+	public void setProductType(ProductType productType) {
+		this.productType = productType;
 	}
 
-	public AttributeDTO getAttributeDTO() {
-		return attributeDTO;
+	public Attribute getAttribute() {
+		return attribute;
 	}
 
-	public void setAttributeDTO(AttributeDTO attributeDTO) {
-		this.attributeDTO = attributeDTO;
+	public void setAttribute(Attribute attribute) {
+		this.attribute = attribute;
 	}
 	
 	
 
-
-	
-}
+	}

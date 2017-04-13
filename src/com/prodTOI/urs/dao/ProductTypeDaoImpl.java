@@ -31,6 +31,11 @@ public class ProductTypeDaoImpl extends AbstractDao<Integer, ProductType> implem
 		persist(productType);
 
 	}
+	
+	public ProductType getProductTypeFromProductDTO(ProductDTO productDTO) {
+		ProductType product = getByKey(productDTO.getProductTypeId());
+		return product;
+	}
 
 	@SuppressWarnings("unchecked")
 	@Override
@@ -82,7 +87,7 @@ public class ProductTypeDaoImpl extends AbstractDao<Integer, ProductType> implem
 		
 		//Return Product DTO Object
 		ProductDTO productDaoDTO = new ProductDTO();
-		productDaoDTO.setCategoryDTO(categoryDTO);
+		productDaoDTO.setCategory(category);
 		productDaoDTO.setProductDisplayName(newProduct.getProductDisplayName());
 		productDaoDTO.setProductPrice(newProduct.getProductPrice());
 		productDaoDTO.setProductType(newProduct.getProductType());

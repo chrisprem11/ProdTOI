@@ -2,11 +2,13 @@ package com.prodTOI.urs.DTO;
 
 import java.util.List;
 
+import com.prodTOI.urs.model.ProductType;
+
 public class CategoryDTO {
 
 	private int productCategoryId;
 	private String productCategory;
-	private List<ProductDTO> productTypeDTO;
+	private List<ProductType> productType;
 
 	
 	public int getProductCategoryId() {
@@ -21,11 +23,11 @@ public class CategoryDTO {
 	public void setProductCategory(String productCategory) {
 		this.productCategory = productCategory;
 	}
-	public List<ProductDTO> getProductTypeDTO() {
-		return productTypeDTO;
+	public List<ProductType> getProductType() {
+		return productType;
 	}
-	public void setProductTypeDTO(List<ProductDTO> productTypeDTO) {
-		this.productTypeDTO = productTypeDTO;
+	public void setProductType(List<ProductType> productType) {
+		this.productType = productType;
 	}
 	
 	

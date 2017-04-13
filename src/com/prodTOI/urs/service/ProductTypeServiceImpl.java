@@ -39,7 +39,7 @@ public class ProductTypeServiceImpl implements ProductTypeService {
 	public ProductDTO createNewProduct(CategoryDTO categoryDTO, ProductDTO productDTO) {
 		String encodedProductImage = "";
 		try {
-			Path path = Paths.get("E:\\smartphone.png");
+			Path path = Paths.get("E:\\iphone.jpg");
 			byte[] data = Files.readAllBytes(path);
 			encodedProductImage = Base64.getEncoder().encodeToString(data);
 			System.out.println("Product Image- " + encodedProductImage);
